@@ -1,0 +1,20 @@
+15-PUZZLE: BFS Approach 
+
+In this program, the 15-puzzle is solved using breadth first search approach. Here the input is given in the form of sequence of numbered tiles.
+This program gives information about the moves to be taken to reach the goal, number nodes expanded before reaching the goal, overall time taken and Memory used
+Here each tile is numbered in a series and the empty slot is considered as 0.
+
+Instructions to run the code:
+•	Run the file 15puzzle_bfs.py
+•	It will ask for the input of current state of 15-puzzle. Please enter the initial state of the puzzle in a sequence of numbers as per the number on the tile by separating with space
+•	Click Enter
+Program execution and algorithm 
+•	The input is converted to list and sent for validation based on availability of 0
+•	Now if it returns True, the input is sent to information() function. If it returns False. It print – solution not found
+•	In the information function frontier list is created and input is passed to it
+•	Now the current node in the frontier is popped and checked with the goal state. If it return True, all the information required for reaching goal state is printed
+•	If False - Up, Down, Right and Left operations are performed on the 0 index and new nodes are added to the frontier for further check.
+•	For the puzzles with no solution we have added a timeout of 30 seconds 
+•	Now using time.time() function and the package psutil we can be able to find the memory utilized. 
+•	Now it will print the moves, number of nodes expanded, time, memory
+Note: this code is runnable in python3 and make sure you have the package psutil.
