@@ -1,4 +1,4 @@
-					                            15-PUZZLE: Iterative Deepening Depth First Search Approach 
+				 15-PUZZLE: Iterative Deepening Depth First Search Approach 
 
 In this program, the 15-puzzle is solved using iterative deepening depth first search approach. Here the input is given in the form of sequence of numbered tiles.
 This program gives information about the moves to be taken to reach the goal, number of nodes expanded before reaching the goal, overall time taken and Memory used
