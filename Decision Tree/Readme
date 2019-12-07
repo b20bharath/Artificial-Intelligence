@@ -1,0 +1,27 @@
+					                                            Decision Tree problem
+
+In this program, the MDP problem is defined and the values of states in each iteration is calculated using the reward of each state, gamma and actions set. The final policy and the values of each state after each iteration is printed.
+ 
+The optimal policy is calculated using modified policy iteration.
+The input is fetched from the mdp_input.txt file.
+
+
+***********************************************************************************
+The input dataset for this problem is fetched from the below link:
+	https://raw.githubusercontent.com/aimacode/aima-data/master/restaurant.csv
+***********************************************************************************
+Instructions to run the code:
+1)Run the file sbandi3_DecisionTree.py
+2)Click Enter
+
+
+Program execution and algorithm:
+Decision Tree:
+1)Decision Tree split the data on the best attribute
+2)The best attribute is considered based on the values of information gain for all the attributes present in the dataset
+3)The information gain is calculated by computing entropy for each node
+
+Chi-square pruning:
+1) The attributes in the decision tree are pruned based on the value of chi-square and the significance value
+
+Note:   this code is runnable in python3 and is developed in spider IDE.
