@@ -1,13 +1,17 @@
-					            15-PUZZLE: A* Search Approach 
+					15-PUZZLE: Iterative Deepening A* Search Approach 
 
-In this program, the 15-puzzle is solved using a* search approach. Here the input is given in the form of sequence of numbered tiles.
+In this program, the 15-puzzle is solved using iterative deepening a* search approach. Here the input is given in the form of sequence of numbered tiles.
+
 This program gives information about the moves to be taken to reach the goal, number of nodes expanded before reaching the goal, overall time taken, and Memory used
+
 Here each tile is numbered in a series and the empty slot is considered as 0. So, the input of the program will be a sequence of 16 numbers
-Here we are going to perform astar search using two heuristics:
+
+Here we are going to perform iterative deepening astar search using two heuristics:
 1. Number of Misplaced tiles
 2. Manhattan Distance
+
 Instructions to run the code:
-•	Run the file 15puzzle_astar.py
+•	Run the file 15puzzle_idastar.py
 •	It will ask for the input of current state of 15-puzzle "Initial Configuration". Please enter the initial state of the puzzle in a sequence of numbers as per the number on the tile by separating with space
 •	Click Enter
 
@@ -15,27 +19,26 @@ Program execution and algorithm
 •	The input is converted to list 
 •	Class Board defines the state of the problem
 •	Class Node defines the node object which contains state, parent, position and action
-•	Two separate processes are called using multiprocessing concept. One for misplaced items and the other for manhattan distance
-	1.	Misplaced Items:
-		a.	A new object of Node is created using the input state and pushed into the frontier
-		b.	We check the minimum value of (number of misplaced items + level of the node) for all the nodes inside the frontier and save that node in a temporary variable.
-		c.	Now, this node is checked whether it is equal to the goal state.
-		d.	If it is equal, then it is returned to the main function
-		e.	Otherwise, pop out the current minimum node from the frontier and find the children using L, R, U, D operations, which are pushed into the frontier.
-		f.	Repeat the process till you find the goal.
-	2.	Manhattan Distance:
-		a.	A new object of Node is created using the input state and pushed into the frontier
-		b.	We check the minimum value of (Manhattan Distance + level of the node) for all the nodes inside the frontier and save that node in a temporary variable.
-		c.	Now, this node is checked whether it is equal to the goal state.
-		d.	If it is equal, then it is returned to the main function
-		e.	Otherwise, pop out the current minimum node from the frontier and find the children using L, R, U, D operations, which are pushed into the frontier.
-		f.	Repeat the process till you find the goal.
+	1.Manhattan Distance:
+		a)A new object of Node is created using the input state and pushed into the frontier
+		b)f value is calculated for the initial node and saved as limiter for iterations
+		c)a while loop is added for iterations and the initial node pushed into frontier. The frontier and f value is sent to the search function
+		d)In the search function, the node is sent for a goal test (whether it is similar to the goal or not). If yes, then it will return to the main function for printing the results. If not first child is taken perform the depth first search.
+		e)for every recursion, the f value of the current node is calculated using manhattan function and it is compared with limiter f value. If it greater, the f value of the current node is stored in the global list and returned. If not, continue the process.
+		f)after completing one iteration, it will be returned to the main function. A minimum f value is determined from the global list and assigned to the limiter f and sent again for search
+	2.Misplaced Items:
+		a)A new object of Node is created using the input state and pushed into the frontier
+		b)f value is calculated for the initial node and saved as limiter for iterations
+		c)a while loop is added for iterations and the initial node pushed into frontier. The frontier and f value is sent to the search function
+		d)In the search function, the node is sent for a goal test (whether it is similar to the goal or not). If yes, then it will return to the main function for printing the results. If not first child is taken perform the depth first search.
+		e)for every recursion, the f value of the current node is calculated using misplaced function and it is compared with limiter f value. If it greater, the f value of the current node is stored in the global list and returned. If not, continue the process.
+		f)after completing one iteration, it will be returned to the main function. A minimum f value is determined from the global list and assigned to the limiter f and sent again for search
 •	Print the results
 
 
 
 Output is displayed as follows:
-The following values are displaced for both approaches of astar
+The following values are displayed for both approaches of iterative deepening astar
 
 •	Moves: 
 •	Number of Nodes expanded:
