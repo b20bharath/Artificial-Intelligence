@@ -1,0 +1,71 @@
+					                                            MDP problem
+
+In this program, the MDP problem is defined and the values of states in each iteration is calculated using the reward of each state, gamma and actions set. The final policy and the values of each state after each iteration is printed.
+ 
+The optimal policy is calculated using modified policy iteration.
+The input is fetched from the mdp_input.txt file.
+
+The format of the input must be as follows:
+***********************************************************************************
+#size of the gridworld
+**(column row) - format**
+size : 5 4
+#list of location of walls
+**(column row) - format**
+walls : 2 2 , 2 3
+#list of terminal states (row,column,reward)
+**(column row reward) - format**
+terminal_states : 5 3 -3 , 5 4 +2, 4 2 +1
+#reward in non-terminal states
+reward : -0.04
+#transition probabilites
+transition_probabilities : 0.8 0.1 0.1 0
+discount_rate : 0.85
+epsilon : 0.001
+***********************************************************************************
+Instructions to run the code:
+•	Run the file sbandi3_MDP.py
+•	It will ask for the name of the input file – Please enter the name of the input file
+•	Click Enter
+
+
+Program execution and algorithm:
+Value iteration
+•	The values required is fetched from the input file and stored in the respective variables.
+•	Two grids are initialized with the given size.
+•	Each grid is considered as a state
+•	The reward of terminal state is assigned in the respective grid and ‘null’ value is assigned in the walls
+•	Actions set contains Up, Down, Right and Left
+•	Utility value of transition state is calculated and multiplied for each action.
+•	The maximum value among the actions is multiplied with gamma and the product is added with the reward
+•	The iterations are continued until the maximum difference between the utilities of each state is less than epsilon.
+•	Now the final converged policy is printed
+Modified Policy iteration:
+•	A random action is chosen for each state and the grid with initial reward values is sent to policyevaluation function and get the grid with updated utility values.
+•	The maximum expected utility is compared for each action in each state and the highest value among the actions is chosen and compared with the randomly generated action.
+•	the randomly generated action is changed if it differs from the chosen action. This cycle is continues untill there is no change. The final optimal policy is printed
+
+
+Output for value iteration is printed in the file as below:(example)
+***********************************************************************************
+Iteration : 17
+0.678915	0.90888	 	1.1681		1.51823		 2 
+0.507982	null		0.9000		0.8139		-3 
+0.367889	null		0.7657		1		0.4543 
+0.307435	0.426568	0.57949		0.735594	0.54515
+
+***********************************************************************************
+
+Output for final policy is printed in the file as below:(example)
+***********************************************************************************
+E  E  E  E  T  
+
+N  -  N  N  T  
+
+N  -  E  T  S  
+
+E  E  N  N  W  
+
+
+
+Note:   this code is runnable in python3.
