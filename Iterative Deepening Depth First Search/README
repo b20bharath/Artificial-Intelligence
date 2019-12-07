@@ -1,0 +1,35 @@
+					15-PUZZLE: Iterative Deepening Depth First Search Approach 
+
+In this program, the 15-puzzle is solved using iterative deepening depth first search approach. Here the input is given in the form of sequence of numbered tiles.
+This program gives information about the moves to be taken to reach the goal, number of nodes expanded before reaching the goal, overall time taken and Memory used
+Here each tile is numbered in a series and the empty slot is considered as 0. So the input of the program will be a sequance of 16 numbers
+
+Instructions to run the code:
+•	Run the file 15puzzle_iddfs.py
+•	It will ask for the input of current state of 15-puzzle "Initial Configuration". Please enter the initial state of the puzzle in a sequence of numbers as per the number on the tile by separating with space
+•	Click Enter
+
+Program execution and algorithm 
+•	The input is converted to list 
+•	Class Board defines the state of the problem
+•	Class Node defines the node object which contains state, parent and action
+•	We define a limiter of depth first search as 0 and increased for every loop
+•	The input is entered in the frontier and an empty list is created for storing past node
+•	Now it is passed to Search function which does the IDDFS search
+•	For each iteration of the recursive function we check whether the node state is equal to goal state
+•	So, if the number of iterations (recursive cycles) reach the limiter value, it will the returned to the main function
+•	Now the limiter value increased and sent to search function
+•	The cycle is continued until the we reach the goal state
+•	The child nodes are generated based on the L, R, U, D actions 
+•	If we reach the goal state, results function is called to print the results and we terminate the program
+
+Output is displayed as follows:
+
+•	Moves: 
+•	Number of Nodes expanded:
+•	Memory used:
+•	Time Taken:
+
+
+Note:   this code is runnable in python3 and make sure you have the package psutil.
+	We have added a timeout for the states that cannot be solved
